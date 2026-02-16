@@ -41,7 +41,7 @@ mixin WebSurfing {
 }
 
 /* ShortMessageService 믹스인은 FeaturePhone 타입만 사용할 수 있기 때문에 SmartPhone
- * 클래스에서 상속하도록 했다. 그리고 하나의 클래스에서 여러 믹스인을 사용할  수 있으므로
+ * 클래스에서 상속하도록 했다. 그리고 하나의 클래스에서 여러 믹스인을 사용할 수 있으므로
  * with 구문에 여러 개의 믹스인을 콤마(,)로 구분해 지정할 수 있다.
  **/
 class SmartPhone extends FeaturePhone with ShortMessageService, WebSurfing {

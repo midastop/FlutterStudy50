@@ -20,7 +20,7 @@ class MyPhone1 implements Phone {
   }
 }
 
-// extends는 오버라이딩이 필요 없이 상속받은 맴버를 그대로 사용할 수 있다.
+// extends는 오버라이딩이 필요없이 상속받은 맴버를 그대로 사용할 수 있다.
 class MyPhone2 extends Phone {
   MyPhone2();
 }
