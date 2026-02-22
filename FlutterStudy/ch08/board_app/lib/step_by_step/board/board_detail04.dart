@@ -1,7 +1,7 @@
 import "package:flutter/material.dart";
 import "package:http/http.dart" as http;
 import "dart:convert";
-import "../models/board_model.dart";
+import "package:board_app/models/board_model.dart";
 
 // 4. SpringBoot RestAPI 서버에서 데이터를 읽어와 게시글 상세보기 출력
 class BoardDetailPage extends StatefulWidget {

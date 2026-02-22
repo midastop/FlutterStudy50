@@ -1,5 +1,5 @@
 import "package:flutter/material.dart";
-import "../models/board_model.dart";
+import "package:board_app/models/board_model.dart";
 
 // 3. 더미 데이터로 게시글 상세보기 UI 구성하기
 class BoardDetailPage extends StatefulWidget {
