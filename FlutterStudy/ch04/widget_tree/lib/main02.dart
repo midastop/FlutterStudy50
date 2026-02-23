@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  // 플러터 앱을 실행해 주는 함수1017
+  // 플러터 앱을 실행해 주는 함수
   runApp(MyApp());
 }
 
