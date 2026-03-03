@@ -45,7 +45,7 @@ class _BoardDetailPageState extends State<BoardDetailPage> {
   Future<Map<String, dynamic>> getBoard(int no, int pageNum) async {
     // 게시글 하나를 읽어올 SpringBoot RestAPI 서버 URL
     //Uri url = Uri.parse("http://192.168.0.16:8080/boards/$no/$pageNum");
-    Uri url = Uri.parse("http://192.168.0.104:8080/boards/$no/$pageNum");
+    Uri url = Uri.parse("http://192.168.0.2:8080/boards/$no/$pageNum");
 
     // 게시글 리스트를 GET 방식으로 요청하고 결과 데이터를 응답으로 받는다.
     final response = await http.get(url);

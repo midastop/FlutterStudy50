@@ -28,6 +28,12 @@ class _MainPageState extends State<MainPage> {
               },
               child: Text("게시글 상세보기"),
             ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.pushNamed(context, "/board/write");
+              },
+              child: Text("게시글 쓰기"),
+            ),
           ],
         ),
       ),
