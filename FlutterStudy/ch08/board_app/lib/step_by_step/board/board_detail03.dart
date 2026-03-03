@@ -1,7 +1,8 @@
 import "package:flutter/material.dart";
-import "package:board_app/models/board_model.dart";
+import "package:http/http.dart" as http;
+import "dart:convert";
 
-// 3. 더미 데이터로 게시글 상세보기 UI 구성하기
+// 게시글 상세페이지 서버 데이터 콘솔 출력
 class BoardDetailPage extends StatefulWidget {
   const BoardDetailPage({super.key});
 
@@ -10,94 +11,34 @@ class BoardDetailPage extends StatefulWidget {
 }
 
 class _BoardDetailPageState extends State<BoardDetailPage> {
-  late int no;
-  late int pageNum;
-  late Board _board;
-  late Future<Map<String, dynamic>> futureMap;
 
-  // AppBar PopupMenuButton
-  final List<PopupMenuEntry<String>> _popupMenuItems = [
-    const PopupMenuItem<String>(
-      value: 'update',
-      child: Row(
-        children: [
-          Icon(Icons.edit, color: Colors.black),
-          SizedBox(width: 10),
-          Text("수정하기"),
-        ],
-      ),
-    ),
-    const PopupMenuItem<String>(
-      value: 'delete',
-      child: Row(
-        children: [
-          Icon(Icons.delete, color: Colors.black),
-          SizedBox(width: 10),
-          Text("삭제하기"),
-        ],
-      ),
-    )
-  ];
+  Future<Map<String, dynamic>> getBoard() async {
+
+    // 게시글을 읽어올 SpringBoot RestAPI 서버 URL
+    //Uri url = Uri.parse("http://192.168.0.16:8080/boards/");
+    Uri url = Uri.parse("http://192.168.0.104:8080/boards/");
+
+    // 게시글 리스트를 GET 방식으로 요청하고 결과 데이터를 응답으로 받는다.
+    final response = await http.get(url);
+
+    // 응답 본문으로 받은 json 데이터를 Dart의 자료구조(객체)로 변환
+    var resMap = jsonDecode(response.body);
+    print("resMap : ${resMap}");
+
+    return resMap;
+  }
 
   @override
   Widget build(BuildContext context) {
+    Map<String, dynamic> args = ModalRoute.of(context)?.settings.arguments as Map<String, dynamic>;
+
     return Scaffold(
         appBar: AppBar(
           title: Text("게시글 상세보기"),
-          actions: [
-            PopupMenuButton(
-              itemBuilder: (BuildContext context) {
-                return _popupMenuItems;
-              },
-              icon: const Icon(Icons.more_vert),
-              onSelected: (String value) async {
-              },
-            )
-          ]
         ),
-        // Flutter에서 비동기 데이터를 처리할 때 사용하는 위젯
-        body: Padding(
-              padding: const EdgeInsets.fromLTRB(5, 0, 5, 10),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Card(
-                    child: ListTile(
-                      leading: const Icon(Icons.article),
-                      title: Text("제목 : "),
-                    )
-                  ),
-                  Card(
-                      child: ListTile(
-                        leading: const Icon(Icons.article),
-                        title: Text("작성자 : "),
-                      )
-                  ),
-                  SizedBox(height: 10),
-                  Container(
-                    margin: EdgeInsets.symmetric(horizontal: 4),
-                    padding: EdgeInsets.all(10),
-                    width: double.infinity,
-                    height: 320,
-                    decoration: BoxDecoration(
-                      color: Theme.of(context).scaffoldBackgroundColor,
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.black.withOpacity(0.3), // 그림자 색상 투명도
-                          spreadRadius: 2,  // 그림자 확산 정도
-                          blurRadius: 8,    // 그림자 번짐 정도
-                          offset: const Offset(4, 4), // 그림자 위치
-                        ),
-                      ],
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                    child: SingleChildScrollView(
-                      child: Text("내용 : ")
-                    )
-                  )
-                ],
-              ),
-            ),
+        body: Center(
+          child: Text("BoardDetailPage"),
+        )
     );
   }
 }

@@ -1,6 +1,6 @@
 import "package:flutter/material.dart";
 
-// 1. 초기 작성 게시글 리스트 페이지
+// 최초 생성한 게시글 리스트 페이지
 class BoardListPage extends StatefulWidget {
   const BoardListPage({super.key});
 

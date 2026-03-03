@@ -41,7 +41,8 @@ class WidgetExam extends StatelessWidget {
         //body: ColumnWidgetExam(),
         //body: FlexibleExam(),
         //body: ExpandedExam(),
-        body: CircularIndicatorExam(),
+        //body: CircularIndicatorExam(),
+        body: RowAndColumnExam(),
       ),
     );
   }

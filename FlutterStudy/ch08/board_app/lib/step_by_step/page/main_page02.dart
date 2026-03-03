@@ -36,7 +36,7 @@ class _MainPageState extends State<MainPage> {
                 Navigator.of(context).push(
                   // 생성자을 통해서 파라미터 전달
                   MaterialPageRoute(
-                    builder: (context) => const BoardDetailPage(no: 3),
+                    builder: (context) => const BoardDetailPage(),
                   ),
                 );
               },

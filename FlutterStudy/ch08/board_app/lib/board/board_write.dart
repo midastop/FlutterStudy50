@@ -1,6 +1,6 @@
 import "package:flutter/material.dart";
 
-// 초기화 게시글 쓰기 페이지
+// 최초 생성한 게시글 쓰기 페이지
 class BoardWritePage extends StatefulWidget {
   const BoardWritePage({super.key});
 

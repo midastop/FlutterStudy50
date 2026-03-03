@@ -1,5 +1,6 @@
 import "package:flutter/material.dart";
 
+// 최초 생성한 메인 페이지
 class MainPage extends StatefulWidget {
   const MainPage({super.key});
 

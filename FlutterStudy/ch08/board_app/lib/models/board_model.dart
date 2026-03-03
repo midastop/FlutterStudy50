@@ -1,4 +1,4 @@
-
+// 게시글 하나의 정보를 저장하는 모델 클래스
 class Board {
   int? no;
   String title;

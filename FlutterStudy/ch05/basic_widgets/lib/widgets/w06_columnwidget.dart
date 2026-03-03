@@ -13,7 +13,7 @@ class ColumnWidgetExam extends StatelessWidget {
         // Column의 주축은 세로 방향이며 교차축은 가로 방향을 의미 함.
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Container(width: 60.0, height: 60.0, color: Colors.red),
             SizedBox(height: 10.0),

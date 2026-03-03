@@ -35,7 +35,7 @@ class _BoardListPageState extends State<BoardListPage> {
                 // 스택의 최상위에 있는 페이지를 제거하지 않고 이동하려는 페지이로 교체 한다.
                 Navigator.of(context).pushReplacement(
                   MaterialPageRoute(
-                    builder: (context) => const BoardDetailPage(no: 10),
+                    builder: (context) => const BoardDetailPage(),
                   ),
                 );
               },

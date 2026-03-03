@@ -1,9 +1,8 @@
 import "package:flutter/material.dart";
-import "package:http/http.dart" as http;
-import "dart:convert";
+import "package:board_app/board/board_write.dart";
 
-// 초기화 게시글 상세 페이지
-class BoardDetailPage extends StatefulWidget {
+// Navigator 페이지 이동 버튼이 있는 게시글 상세 페이지
+class BoardDetailPage extends StatefulWidget {  
   const BoardDetailPage({super.key});
 
   @override
@@ -11,34 +10,41 @@ class BoardDetailPage extends StatefulWidget {
 }
 
 class _BoardDetailPageState extends State<BoardDetailPage> {
-
-  Future<Map<String, dynamic>> getBoard() async {
-
-    // 게시글을 읽어올 SpringBoot RestAPI 서버 URL
-    //Uri url = Uri.parse("http://192.168.0.16:8080/boards/");
-    Uri url = Uri.parse("http://192.168.0.104:8080/boards/");
-
-    // 게시글 리스트를 GET 방식으로 요청하고 결과 데이터를 응답으로 받는다.
-    final response = await http.get(url);
-
-    // 응답 본문으로 받은 json 데이터를 Dart의 자료구조(객체)로 변환
-    var resMap = jsonDecode(response.body);
-    print("resMap : ${resMap}");
-
-    return resMap;
-  }
-
   @override
   Widget build(BuildContext context) {
-    Map<String, dynamic> args = ModalRoute.of(context)?.settings.arguments as Map<String, dynamic>;
-
     return Scaffold(
-        appBar: AppBar(
-          title: Text("게시글 상세보기"),
+      appBar: AppBar(title: Text("게시글 상세보기")),
+      body: Container(
+        width: double.infinity,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Text("BoardDetailPage"),
+            SizedBox(height: 10),
+            ElevatedButton(
+              onPressed: () {
+                // popUntil()은 스택의 모든 페이지를 바로 닫는다. isFirst를 반환하면
+                // 스택 최하위에 있는 라우터를 제외하고 모든 페이지를 닫는다.
+                Navigator.of(context).popUntil((route) => route.isFirst);
+              },
+              child: Text("처음으로"),
+            ),
+            SizedBox(height: 10),
+            ElevatedButton(
+              onPressed: () {
+                // 스택 최상위에 이동하려는 페이지를 추가한다.
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => const BoardWritePage(),
+                  ),
+                );
+              },
+              child: Text("게시글 쓰기"),
+            ),
+          ],
         ),
-        body: Center(
-          child: Text("BoardDetailPage"),
-        )
+      ),
     );
   }
 }

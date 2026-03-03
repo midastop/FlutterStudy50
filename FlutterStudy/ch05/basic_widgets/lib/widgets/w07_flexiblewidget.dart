@@ -18,7 +18,7 @@ class FlexibleExam extends StatelessWidget {
               // 또는 자신의 크기 만큼만 채울지를 지정하는 파라미터 이다.
               // FlexFit.loose : 기본 값으로 자식 위젯의 크기 만큼 채움
               // FlexFit.tight : flex에 지정한 비율을 모두 채움
-              //fit: FlexFit.loose,
+              //fit: FlexFit.tight,
               child: Container(
                 color: Colors.orange,
                 height: 50.0,

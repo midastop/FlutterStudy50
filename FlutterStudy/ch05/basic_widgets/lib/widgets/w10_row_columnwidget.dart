@@ -19,11 +19,11 @@ class RowAndColumnExam extends StatelessWidget {
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Image.asset('assets/flutter_log.png', width: 200),
+              Image.asset('assets/images/flutter_log.png', width: 200),
               // 로딩 애니메이션 위젯
               CircularProgressIndicator(color: Colors.white),
               SizedBox(height: 50.0),
-              Flexible(child: Image.asset('assets/flutter_log.png')),
+              Flexible(child: Image.asset('assets/images/flutter_log.png')),
               Expanded(child: CircularProgressIndicator()),
             ],
           ),
