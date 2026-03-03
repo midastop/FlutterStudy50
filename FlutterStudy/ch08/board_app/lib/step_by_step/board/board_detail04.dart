@@ -12,7 +12,7 @@ class BoardDetailPage extends StatefulWidget {
 
 class _BoardDetailPageState extends State<BoardDetailPage> {
 
-  // AppBar PopupMenuButton
+  // AppBar 우측의 더 보기 메뉴 PopupMenuButton
   final List<PopupMenuEntry<String>> _popupMenuItems = [
     const PopupMenuItem<String>(
       value: 'update',
@@ -59,13 +59,13 @@ class _BoardDetailPageState extends State<BoardDetailPage> {
                 children: [
                   Card(
                     child: ListTile(
-                      leading: const Icon(Icons.article),
+                      leading: const Icon(Icons.subject),
                       title: Text("제목 : "),
                     )
                   ),
                   Card(
                       child: ListTile(
-                        leading: const Icon(Icons.article),
+                        leading: const Icon(Icons.person),
                         title: Text("작성자 : "),
                       )
                   ),
@@ -79,7 +79,7 @@ class _BoardDetailPageState extends State<BoardDetailPage> {
                       color: Theme.of(context).scaffoldBackgroundColor,
                       boxShadow: [
                         BoxShadow(
-                          color: Colors.black.withOpacity(0.3), // 그림자 색상 투명도
+                          color: Colors.black.withAlpha(80), // 그림자 색상 투명도
                           spreadRadius: 2,  // 그림자 확산 정도
                           blurRadius: 8,    // 그림자 번짐 정도
                           offset: const Offset(4, 4), // 그림자 위치

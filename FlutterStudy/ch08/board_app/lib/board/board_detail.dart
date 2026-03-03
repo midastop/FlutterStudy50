@@ -17,7 +17,7 @@ class _BoardDetailPageState extends State<BoardDetailPage> {
   late Board _board;
   late Future<Map<String, dynamic>> futureMap;
 
-  // AppBar PopupMenuButton
+  // AppBar 우측의 더 보기 메뉴 PopupMenuButton
   final List<PopupMenuEntry<String>> _popupMenuItems = [
     const PopupMenuItem<String>(
       value: 'update',
@@ -61,9 +61,9 @@ class _BoardDetailPageState extends State<BoardDetailPage> {
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    // 이전 페이지에서 페이지 이동할 때 보낸 데이터 받기
+    // 현재 페이지로 연결해준 라우터를 찾아서 이전 페이지에서 보낸 데이터 받기
     final args =
-        ModalRoute.of(context)?.settings.arguments as Map<String, dynamic>;
+        ModalRoute.of(context)?.settings.arguments as Map<String, dynamic>?;
     if (args != null) {
       no = args["no"] as int;
       pageNum = args["pageNum"] as int;
@@ -110,13 +110,13 @@ class _BoardDetailPageState extends State<BoardDetailPage> {
                 children: [
                   Card(
                     child: ListTile(
-                      leading: const Icon(Icons.article),
+                      leading: const Icon(Icons.subject),
                       title: Text(board["title"] ?? "제목 : "),
                     ),
                   ),
                   Card(
                     child: ListTile(
-                      leading: const Icon(Icons.article),
+                      leading: const Icon(Icons.person),
                       title: Text(board["writer"] ?? "작성자 : "),
                     ),
                   ),
@@ -130,7 +130,7 @@ class _BoardDetailPageState extends State<BoardDetailPage> {
                       color: Theme.of(context).scaffoldBackgroundColor,
                       boxShadow: [
                         BoxShadow(
-                          color: Colors.black.withOpacity(0.3), // 그림자 색상 투명도
+                          color: Colors.black.withAlpha(80), // 그림자 색상 투명도
                           spreadRadius: 2, // 그림자 확산 정도
                           blurRadius: 8, // 그림자 번짐 정도
                           offset: const Offset(4, 4), // 그림자 위치
